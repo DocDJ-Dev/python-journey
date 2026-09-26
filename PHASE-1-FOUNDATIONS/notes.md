@@ -46,3 +46,45 @@ If neither string finds a differing character and one just runs out first, the s
 sorted() and .sort() use exactly this rule internally
 
 #Method chaining: each method returns a new string, and the next method runs on that result.
+
+## Collections- lists, tuples, sets and dictionaries.
+
+##Lists
+-A list is an ordered, mutable sequence collecting items not merely of the same type.
+-Indexing and slicing work identically to strings.
+The real difference: can change an item in place — my_list[0] = "new value"— no new object gets created, the same list object is mutated.
+#Core methods:
+1 .append(x) (add to the end)
+2 .insert(i, x)
+3 .remove(x) (removes by value x inside the list),
+4 .pop(i) (removes and returns the item at index i, defaults to the last item),
+5 .sort() (sorts in place, returns None),
+6 .reverse(),
+7 .extend() (merges another list in)
+8 .sorted(my_list) is different from .sort() — it returns a new sorted list and leaves the original untouched.
+#list_b = list_a does not copy anything — both names now point at the same list object. Mutate one, and the other changes too, because there's only one list, with two names for it.
+A real independent copy needs .copy(), list(list_a), or list_a[:].
+
+##Tuple
+-ordered like a list, but immutable
+-No .append(), no item assignment — once built, it's fixed.
+-Used for things that are conceptually a single fixed unit (a coordinate, a fixed-format row)
+-single-item tuple needs a trailing comma — (5,), not (5) (which is just the integer 5 in parentheses).
+-Syntax=> () not []
+
+##Sets
+-unordered, and every item is unique
+-no duplicates, ever — adding a duplicate is silently ignored
+-No indexing, since "unordered" means there's no position to index.
+Written {1, 2, 3} — but {} alone makes an empty dict, not a set; empty set is set().
+| (union — everything from both)
+& (intersection — only what's in both)
+-(difference — in this one but not the other).
+
+##Dictionary(dict)
+-key-value pairs, like a labeled record.
+-{"name": "Moyo", "age": 34}
+-Access by key, not position: record["name"]
+-.get(key, default) is the safe version — returns default instead of crashing if the key doesn't exist.
+-Mutable, just like lists;
+-record["age"] = 35 updates it in place; record["ward"] = "ICU" adds a brand-new key.
