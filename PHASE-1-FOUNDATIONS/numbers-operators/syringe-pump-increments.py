@@ -17,8 +17,8 @@ total_fluid_collected = (
 
 difference = abs(total_fluid_collected - targeted_total)
 
-is_close = difference < tolerance_threshold
+within_tolerance = difference <= tolerance_threshold
 
-print(total_fluid_collected)
-print(difference)
-print(is_close)
+print(f"Total: {total_fluid_collected}")
+print(f"Difference: {difference}")
+print(f"Within tolerance? {within_tolerance}")
