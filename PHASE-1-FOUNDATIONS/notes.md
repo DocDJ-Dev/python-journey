@@ -88,3 +88,17 @@ Written {1, 2, 3} — but {} alone makes an empty dict, not a set; empty set is 
 -.get(key, default) is the safe version — returns default instead of crashing if the key doesn't exist.
 -Mutable, just like lists;
 -record["age"] = 35 updates it in place; record["ward"] = "ICU" adds a brand-new key.
+
+## Operators Roundup
+
+-Augmented assignment — x += 1 is shorthand for x = x + 1
+-Same for -=, multiplication, /=, //=, %=, modulus
+#Logical operators
+and (both sides must be true),
+or (at least one side true),
+not (flips a boolean)
+#Truthiness — every value has an implicit True/False-ness, even outside actual booleans.
+-0, 0.0, "", [], {}, set(), and None are all "falsy."
+-Almost everything else is "truthy."
+#Membership- in / not in
+-check whether something exists inside a list, set, string, or dict (checks the keys for a dict, not the values).
